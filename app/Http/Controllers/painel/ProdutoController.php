@@ -8,14 +8,17 @@ use App\Models\Painel\Product;
 
 class ProdutoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+	private $product;
+	
+	public function __construc(Product $product)
+	{
+		$this->product = product;
+	}
+
     public function index(Product $product)
     {
-	$products = $product->all(); 
+	$products = $this->product->all(); 
 	
      	return view('painel.products.index', compact('products')); 
     }
